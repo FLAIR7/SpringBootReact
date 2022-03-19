@@ -1,25 +1,22 @@
-// import './App.css';
-// import { getAllStudents } from './client';
-
-// function App() {
-//   getAllStudents().then(res => res.json().then(students => {
-//     console.log(students);
-//   }));
-//   return <h1>Hello World</h1>
-// }
-
-// export default App;
 import React, { Component } from 'react';
+import Container from './Container';
 import './App.css';
 import { getAllStudents } from './client';
+import { LoadingOutlined } from '@ant-design/icons';
 import {
-  Table
+  Table,
+  Avatar,
+  Spin,
 } from 'antd';
+
+const getIndicatorIcon = () => <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
 
 class App extends Component {
 
     state = {
-        students: []
+        students: [],
+        isFetching: false
     }
 
     componentDidMount() {
@@ -27,21 +24,43 @@ class App extends Component {
     }
 
     fetchStudents = () => {
+      this.setState({
+        isFetching: true
+      });
       getAllStudents()
         .then(res => res.json()
         .then(students => {
           console.log(students);
           this.setState({
-            students
+            students,
+            isFetching: false
           });
         }));
     }
 
     render() {
-        const { students } = this.state;
+
+        const { students, isFetching } = this.state;
+
+        if(isFetching) {
+          return(
+            <Container>
+              <Spin indicator={getIndicatorIcon()}/>
+            </Container>
+          );
+        }
 
         if(students && students.length) {
             const columns = [
+              {
+                title: '',
+                key: 'avatar',
+                render: (text, student) => (
+                  <Avatar size='large'>
+                    {`${student.firstName.charAt(0).toUpperCase()}${student.lastName.charAt(0).toUpperCase()}`}
+                  </Avatar>
+                )
+              },
               {
                 title: 'Student Id',
                 dataIndex: 'studentId',
@@ -69,13 +88,16 @@ class App extends Component {
               }
             ];
             return (
-              <Table 
-                dataSource={students} 
-                columns={columns} 
-                rowKey='studentId'/>
+              <Container>
+                <Table
+                  dataSource={students} 
+                  columns={columns}
+                  pagination={false} 
+                  rowKey='studentId'/>
+              </Container>
             );
         }
-        return <h1>No Students</h1>
+        return <h1>No Students found</h1>
     }   
 }
 
