@@ -4,7 +4,7 @@ server:
 
 app:
   datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/test
+    jdbc-url: jdbc:postgresql://localhost:5432/guilty
     username: guilty
     password: 
     pool-size: 30
