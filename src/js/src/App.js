@@ -31,10 +31,6 @@ class App extends Component {
 
     closeAddStudentModal = () => this.setState({isAddStudentModalVisible: false})
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 11ea5b37f781ea12f2d3dac72fbe9a888d40513f
     fetchStudents = () => {
       this.setState({
         isFetching: true
@@ -108,16 +104,11 @@ class App extends Component {
                   pagination={false} 
                   rowKey='studentId'/>
                 <Modal
-<<<<<<< HEAD
                   title='Add new Student'
-=======
-                  title='Add new student'
->>>>>>> 11ea5b37f781ea12f2d3dac72fbe9a888d40513f
                   visible={isAddStudentModalVisible}
                   onOk={this.closeAddStudentModal}
                   onCancel={this.closeAddStudentModal}
                   width={1000}>
-<<<<<<< HEAD
                   <AddStudentForm 
                     onSuccess={() => {
                       this.closeAddStudentModal(); 
@@ -128,12 +119,6 @@ class App extends Component {
                 <Footer 
                   numberOfStudents={students.length}
                   handleAddStudentClickEvent={this.openAddStudentModal}/>
-=======
-                  <h1>Test antd Model</h1>
-                </Modal>
-                <Footer numberOfStudents={students.length}
-                handleAddStudentClickEvent={this.openAddStudentModal}/>
->>>>>>> 11ea5b37f781ea12f2d3dac72fbe9a888d40513f
               </Container>
             );
         }
