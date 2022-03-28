@@ -22,9 +22,15 @@
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-jdbc</artifactId>
     		<version>5.3.16</version>
+=======
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.2.1.RELEASE</version>
+>>>>>>> 11ea5b37f781ea12f2d3dac72fbe9a888d40513f
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
