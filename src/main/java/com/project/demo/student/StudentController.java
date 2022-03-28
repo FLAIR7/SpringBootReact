@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("students")
 public class StudentController {
     
-<<<<<<< HEAD
-=======
-    // Dependency injection
->>>>>>> 11ea5b37f781ea12f2d3dac72fbe9a888d40513f
     private final StudentService studentService;
 
     @Autowired
