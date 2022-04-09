@@ -4,7 +4,7 @@ import { Input, Button, Tag } from 'antd';
 import { addNewStudent } from '../client';
 
 const inputBottomMargin = {marginBottom: '10px'}
-const tagStyle = {backgroundColor: '#f50', color: '#ffffff', ...inputBottomMargin};
+const tagStyle = {backgroundColor: '#32a852', color: '#ffffff', ...inputBottomMargin};
 
 const AddStudentForm = (props) => (
     <Formik
