@@ -39,6 +39,11 @@ const AddStudentForm = (props) => (
        onSubmit={(values, { setSubmitting }) => {
             addNewStudent(values).then(() => {
                 props.onSuccess();
+            })
+            .catch(err => {
+                props.onFailure(err);
+            })
+            .finally(() => {
                 setSubmitting(false);
             })
        }}>

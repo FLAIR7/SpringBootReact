@@ -1,6 +1,10 @@
-/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/student/Student.java
-/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/student/StudentService.java
-/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/student/StudentController.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/controller/StudentController.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/services/StudentService.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/model/Student.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/exception/ApiRequestException.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/datasource/Datasource.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/exception/ApiException.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/exception/ApiExceptionHandler.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/student/StudentDataAcessService.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/EmailValidator.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/DemoApplication.java

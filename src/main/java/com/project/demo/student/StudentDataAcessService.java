@@ -3,6 +3,8 @@ package com.project.demo.student;
 import java.util.List;
 import java.util.UUID;
 
+import com.project.demo.model.Student;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,7 +21,7 @@ public class StudentDataAcessService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    List<Student> selectAllStudent(){
+    public List<Student> selectAllStudent(){
         String sql = "" + 
                 "SELECT " + 
                 " student_id, " +
@@ -31,7 +33,7 @@ public class StudentDataAcessService {
         return jdbcTemplate.query(sql, mapStudentFromDb());
     }
 
-    int insertStudent(UUID studentId, Student student) {
+    public int insertStudent(UUID studentId, Student student) {
         String sql = "" +
                 "INSERT INTO student(" +
                 " student_id," +
@@ -48,6 +50,21 @@ public class StudentDataAcessService {
             student.getEmail(),
             student.getGender().name().toUpperCase()
         );
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    public boolean isEmailTaken(String email) {
+        String sql = "" + 
+                "SELECT EXISTS ( " +
+                " SELECT 1 " +
+                " FROM student " + 
+                " WHERE email = ?" +
+                ")";
+        return jdbcTemplate.queryForObject(
+                    sql, 
+                    new Object[] {email},
+                    (resultSet, i) -> resultSet.getBoolean(1)
+                );
     }
 
      private RowMapper<Student> mapStudentFromDb() {
