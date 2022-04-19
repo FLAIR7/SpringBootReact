@@ -77,7 +77,6 @@ class App extends Component {
             onFailure={(error) => {
               const message = error.error.message;
               const description = error.error.httpStatus;
-              console.log(JSON.stringify(error));
               errorNotification(message, description);
             }}
             />
@@ -148,10 +147,10 @@ class App extends Component {
         }
         return (
           <Container>
-            <Empty description={
-              <h1>There are not Students &#128546;</h1>
-            }/>
-            {commonElements()}
+              <Empty description={
+                <h1>There are not Students &#128546;</h1>
+              }/>
+              {commonElements()}
           </Container>
         )
     }   
