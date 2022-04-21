@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import com.project.demo.EmailValidator;
 import com.project.demo.exception.ApiRequestException;
 import com.project.demo.model.Student;
+import com.project.demo.model.StudentCourse;
 import com.project.demo.student.StudentDataAcessService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,9 @@ public class StudentService {
 
         
         studentDataAcessService.insertStudent(newStudentId, student);
+    }
+
+    public List<StudentCourse> getAllCoursesForStudent(UUID studentId) {
+        return studentDataAcessService.selectAllStudentCourses(studentId);
     }
 }

@@ -1,19 +1,17 @@
 package com.project.demo.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
 import com.project.demo.exception.ApiRequestException;
 import com.project.demo.model.Student;
+import com.project.demo.model.StudentCourse;
 import com.project.demo.services.StudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("students")
@@ -30,6 +28,11 @@ public class StudentController {
     @GetMapping
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @GetMapping(path = "{studentId}/courses")
+    public List<StudentCourse> getAllCoursesForStudent(@PathVariable("studentId") UUID studentId) {
+        return studentService.getAllCoursesForStudent(studentId);
     }
 
     @PostMapping
