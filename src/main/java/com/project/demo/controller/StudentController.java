@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("students")
+@RequestMapping("api/students")
 public class StudentController {
     
     // Dependency Injection
@@ -38,6 +38,17 @@ public class StudentController {
     @PostMapping
     public void addNewStudent(@RequestBody @Valid Student student) {
         studentService.addNewStudent(student);
+    }
+
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable("studentId") UUID studentId,
+                              @RequestBody Student student) {
+        studentService.updateStudent(studentId, student);
+    }
+
+    @DeleteMapping("{studentId}")
+    public void deleteStudent(@PathVariable("studentId") UUID studentId) {
+        studentService.deleteStudent(studentId);
     }
 
 }

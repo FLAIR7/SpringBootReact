@@ -13,17 +13,31 @@ const checkStatus = response => {
     }
 }
 
-// Get the json from api/students using GET
 export const getAllStudents = () => 
     fetch('api/students').then(checkStatus);
 
-//Same thing but with POST
 export const addNewStudent = student => 
-fetch('api/students', {
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    method: 'POST', 
-    body: JSON.stringify(student) 
-})
-.then(checkStatus);
+    fetch('api/students', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', 
+        body: JSON.stringify(student) 
+    })
+    .then(checkStatus);
+
+export const updateStudent = (studentId, student) => 
+    fetch(`api/students/${studentId}`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'PUT',
+        body: JSON.stringify(student)
+    })
+    .then(checkStatus);
+
+export const deleteStudent = studentId => 
+    fetch(`api/students/${studentId}`, {
+        method: 'DELETE'
+    })
+    .then(checkStatus);

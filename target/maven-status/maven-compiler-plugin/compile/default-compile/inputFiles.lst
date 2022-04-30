@@ -5,6 +5,7 @@
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/datasource/Datasource.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/exception/ApiException.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/exception/ApiExceptionHandler.java
+/home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/model/StudentCourse.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/student/StudentDataAcessService.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/EmailValidator.java
 /home/guilty/Música/SpringBootReact/src/main/java/com/project/demo/DemoApplication.java

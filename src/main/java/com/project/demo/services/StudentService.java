@@ -13,6 +13,7 @@ import com.project.demo.student.StudentDataAcessService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 // This class is manly for bussiness logic
 @Service
@@ -55,5 +56,30 @@ public class StudentService {
 
     public List<StudentCourse> getAllCoursesForStudent(UUID studentId) {
         return studentDataAcessService.selectAllStudentCourses(studentId);
+    }
+
+    public void updateStudent(UUID studentId, Student student) {
+        Optional.ofNullable(student.getEmail())
+                .ifPresent(email -> {
+                    boolean emailtaken = studentDataAcessService.selectExistsEmail(studentId, email);
+                    if(!emailtaken) {
+                        studentDataAcessService.updateEmail(studentId, email);
+                    } else {
+                        throw new IllegalStateException("Email " + student.getEmail() + " is already in use");
+                    }
+                });
+        Optional.ofNullable(student.getFirstName())
+                .filter(firstName -> !StringUtils.isEmpty(firstName))
+                .map(StringUtils::capitalize)
+                .ifPresent(firstName -> studentDataAcessService.updateFirstName(studentId, firstName));
+
+        Optional.ofNullable(student.getLastName())
+                .filter(lastName -> !StringUtils.isEmpty(lastName))
+                .map(StringUtils::capitalize)
+                .ifPresent(lastName -> studentDataAcessService.updateLastName(studentId, lastName));
+    }
+
+    public void deleteStudent(UUID studentId){
+        studentDataAcessService.deleteStudentById(studentId);
     }
 }

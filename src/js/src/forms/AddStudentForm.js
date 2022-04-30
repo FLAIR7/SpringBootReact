@@ -57,7 +57,6 @@ const AddStudentForm = (props) => (
         isSubmitting,
         submitForm,
         isValid
-         /* and other goodies */
     }) => (
          <form onSubmit={handleSubmit}>
             <Input
