@@ -10,5 +10,4 @@ CREATE TABLE IF NOT EXISTS student (
             gender = 'FEMALE' OR
             gender = 'female' 
         )
-
 );

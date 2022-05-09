@@ -124,7 +124,7 @@ class App extends Component {
           </Modal>
           
           <Modal
-            title='Edit'
+            title='Edit Student'
             visible={this.state.isEditStudentModalVisible}
             onOk={this.closeEditStudentModal}
             onCancel={this.closeEditStudentModal}
@@ -134,14 +134,15 @@ class App extends Component {
 
             <EditStudentForm
               initialValues={this.state.selectedStudent}
-              submitter={this.updateStudentFormSubmitter}/>
+              submitter={this.updateStudentFormSubmitter}
+              />
           </Modal>
 
           <Footer 
             numberOfStudents={students.length}
             handleAddStudentClickEvent={this.openAddStudentModal}/>
           </div>
-      )
+      );
 
         if(isFetching) {
           return(
@@ -224,7 +225,7 @@ class App extends Component {
               }/>
               {commonElements()}
           </Container>
-        )
+        );
     }   
 }
 

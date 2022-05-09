@@ -1,12 +1,12 @@
 com/project/demo/DemoApplication.class
 com/project/demo/datasource/Datasource.class
+com/project/demo/services/StudentService.class
 com/project/demo/exception/ApiException.class
 com/project/demo/controller/StudentController.class
+com/project/demo/model/Student.class
 com/project/demo/exception/ApiExceptionHandler.class
 com/project/demo/EmailValidator.class
 com/project/demo/model/Student$Gender.class
-com/project/demo/model/StudentCourse.class
-com/project/demo/services/StudentService.class
-com/project/demo/model/Student.class
 com/project/demo/exception/ApiRequestException.class
+com/project/demo/model/StudentCourse.class
 com/project/demo/student/StudentDataAcessService.class
