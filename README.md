@@ -3,6 +3,9 @@ A Project using Spring-Boot and React
 
 <img src="./github/page.png" alt="page">
 
+# heroku
+https://app-student255.herokuapp.com/
+
 # requirements
 ```
 Java 11
